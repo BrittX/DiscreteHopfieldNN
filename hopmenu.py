@@ -3,6 +3,7 @@ Menu portion for Hopfield NN
 """
 import sys
 import os
+import train as t
 
 def menu():
 	print("\n Please choose one of the options below")
@@ -40,6 +41,7 @@ def pick_one(choice):
 # Options for menu
 menu_choice = {"menu": menu,
         # 1: imageTrain, # Call from train.py
+        1: t.getSamples,
         # 2: imageTest, # Call from test.py
 	    3: sys.exit,
         }
