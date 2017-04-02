@@ -18,6 +18,9 @@ def main():
 		except ValueError:
 			print('Need to choose a number option from the menu')
 			hm.pick_one(3) # Just exit the program
+		except TypeError:
+			print("The value needs to be an integer")
+			hm.pick_one(3)
 
 # Testing code
 if __name__ == '__main__':
