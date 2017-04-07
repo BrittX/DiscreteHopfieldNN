@@ -24,16 +24,28 @@ Function to read and store each line in training file
 """
 def hopAlgo(tContents):
 	# Store contents as # inputs, training pairs
+	#tpairs = ""
 	tpairs = []
 	for i, item in enumerate(tContents):
 		if i == 0: ins = int(item)
 		elif i == 1: pairs = int(item)
 		# Not include initial new line before training pairs
 		elif i == 2 and item == '\n': continue
-		else: tpairs.append(item)
-	weights = [[0 for x in range(ins)] for y in range(pairs)]
-	for row in tpairs:
-		for i, item in enumerate(row):
-			if item == ' ': weights[i] = -1
-			if item != ' ': weights[i] = 1
-	print(weights)
+		else:
+			tpairs.append(item)
+		
+	"""
+	Probs put in its own function, but this stores each training pair
+		as it's own list within the trains list
+	"""
+	i = 0
+	trains = [[] for x in range(pairs)]
+	for tset in trains:
+		for item in tpairs[i:]:
+			if item == '\n': 
+				i+=1 # increment the index at end of training pair
+				break
+			tset.append(item)
+			i+=1
+
+	print("this is trains", trains)
