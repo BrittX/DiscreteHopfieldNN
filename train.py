@@ -45,7 +45,11 @@ def hopAlgo(tContents):
 			if item == '\n': 
 				i+=1 # increment the index at end of training pair
 				break
-			tset.append(item)
+			# Go through each item in that row
+			for thing in item:
+				# if it's a zero then store it as a 1
+				if thing != ' ': tset.append(1)
+				else: tset.append(-1) # otherwise it's -1
 			i+=1
-
-	print("this is trains", trains)
+	print(trains)
+	
